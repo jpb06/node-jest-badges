@@ -37,6 +37,7 @@ jobs:
         run: yarn test:ci
 
       - name: Publishing package
-        run: yarn publish
+        run: yarn build
+        run: cd dist && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

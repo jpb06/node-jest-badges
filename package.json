@@ -1,13 +1,21 @@
 {
   "name": "node-jest-badges",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "Generating coverage badges from jest",
   "main": "index.js",
   "repository": "https://github.com/jpb06/node-jest-badges.git",
   "author": "jpb06 <jpb.06@outlook.com>",
+  "bin": {
+    "generateBadges": "./cli/generateBadges.cli.js"
+  },
   "license": "MIT",
   "scripts": {
+    "copy-package": "copyfiles package.json ./dist/",
+    "copy-badges": "copyfiles ./badges/* ./dist/",
+    "copy-readme": "copyfiles README.md ./dist/",
     "build": "tsc --project tsconfig.prod.json",
-    "dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
+    "postbuild": "yarn copy-package && yarn copy-badges && yarn copy-readme",
+    "dev": "ts-node -r tsconfig-paths/register ./src/logic/generation/generateBadges.logic.ts",
     "test": "jest",
     "test:dev": "jest --watchAll --coverage",
     "test:ci": "jest --runInBand --ci"
@@ -21,6 +29,7 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
     "@types/node-fetch": "^2.5.8",
+    "copyfiles": "^2.4.1",
     "jest": "^26.6.3",
     "jest-watch-typeahead": "^0.6.1",
     "prettier": "^2.0.2",
