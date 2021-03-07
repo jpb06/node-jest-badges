@@ -13,12 +13,13 @@
     "copy-package": "copyfiles package.json ./dist/",
     "copy-badges": "copyfiles ./badges/* ./dist/",
     "copy-readme": "copyfiles README.md ./dist/",
-    "build": "tsc --project tsconfig.prod.json",
+    "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "postbuild": "yarn copy-package && yarn copy-badges && yarn copy-readme",
     "dev": "ts-node -r tsconfig-paths/register ./src/logic/generation/generateBadges.logic.ts",
     "test": "jest",
     "test:dev": "jest --watchAll --coverage",
-    "test:ci": "jest --runInBand --ci"
+    "test:ci": "jest --runInBand --ci",
+    "generate:badges": "generateBadges"
   },
   "dependencies": {
     "fs-extra": "^9.1.0",
@@ -36,6 +37,7 @@
     "ts-jest": "^26.5.3",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
+    "tscpaths": "^0.0.9",
     "typescript": "^4.2.2"
   }
 }
