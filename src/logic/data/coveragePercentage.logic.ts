@@ -3,9 +3,14 @@ import { CoverageSummary } from "@owntypes/coverageSummary.type";
 import { Summary } from "@owntypes/summary.type";
 import { TotalKey } from "@owntypes/totalKey.type";
 
-const getTotalPercentage = (summary: Summary) =>
-  summaryKeys.map((k) => summary.total[k].pct || 0).reduce((a, b) => a + b, 0) /
-  summaryKeys.length;
+const getTotalPercentage = (summary: Summary) => {
+  const result =
+    summaryKeys
+      .map((k) => summary.total[k].pct || 0)
+      .reduce((a, b) => a + b, 0) / summaryKeys.length;
+
+  return Math.round((result + Number.EPSILON) * 100) / 100;
+};
 
 export const getPercentage = (
   summary: Summary,
