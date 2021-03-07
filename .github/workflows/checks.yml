@@ -39,6 +39,9 @@ jobs:
       - name: Building package
         run: yarn build
 
+      - name: Generating badges
+        run: yarn generate:badges
+
       - name: Publishing package
         run: cd dist && yarn publish
         env:
