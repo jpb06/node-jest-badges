@@ -40,7 +40,7 @@ jobs:
         run: yarn build
 
       - name: Generating badges
-        run: yarn generate:badges
+        run: node ./dist/cli/generateBadges.cli.js
 
       - name: Publishing package
         run: cd dist && yarn publish
