@@ -31,13 +31,13 @@ Well, let's just start by stating the obvious here. Yes, you will need [jest tes
 ### Install
 
 ```shell
-yarn add -D node-jest-badge
+yarn add -D node-jest-badges
 ```
 
 or
 
 ```shell
-npm i -D node-jest-badge
+npm i -D node-jest-badges
 ```
 
 ### Jest configuration
@@ -51,6 +51,8 @@ module.exports = {
 ```
 
 ### Usage
+
+You have two ways to generate coverage badges: cli and node. Both will create a 'badges' folder at project root where .svg files will be written.
 
 #### Cli
 
