@@ -39,7 +39,7 @@ jobs:
         id: extract_branch
 
       - name: Display branch name
-        run: echo "Current branch: ${{ steps.extract_branch.outputs.branch }}"
+        run: echo "Current branch = ${{ steps.extract_branch.outputs.branch }}"
 
       - name: Tests
         run: yarn test:ci
