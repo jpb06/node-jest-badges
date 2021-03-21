@@ -47,10 +47,5 @@ jobs:
       - name: Building package
         run: yarn build
 
-      - name: Generating badges
-        run: cd dist && node ./cli/generateBadges.cli.js
-
-      - name: Publishing package
-        run: cd dist && yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Bump package version
+        uses: jpb06/bump-package@v1.0
