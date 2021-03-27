@@ -18,8 +18,7 @@
     "dev": "ts-node -r tsconfig-paths/register ./src/tests-related/generate.ts",
     "test": "jest",
     "test:dev": "jest --watchAll --coverage",
-    "test:ci": "jest --runInBand --ci --collectCoverage",
-    "v": "ts-node -r tsconfig-paths/register ./src/tests-related/version.ts"
+    "test:ci": "jest --runInBand --ci --collectCoverage"
   },
   "dependencies": {
     "fs-extra": "^9.1.0",
