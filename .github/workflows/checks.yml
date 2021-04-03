@@ -40,7 +40,7 @@ jobs:
         run: yarn build
 
       - name: Bump package version
-        uses: jpb06/bump-package@v1.2.1
+        uses: jpb06/bump-package@v1.2.2
         with:
           publish: true
         env:
