@@ -42,4 +42,6 @@ jobs:
       - name: Bump package version
         uses: jpb06/bump-package@v1.2.0
         with:
-          publish: "true"
+          publish: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
