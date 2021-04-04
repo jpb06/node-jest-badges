@@ -37,7 +37,7 @@ jobs:
         run: yarn test:ci
 
       - name: Bump package version
-        uses: jpb06/bump-package@v1.2.4
+        uses: jpb06/bump-package@v1.2.5
         with:
           publish: true
         env:
