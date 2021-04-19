@@ -14,7 +14,7 @@
     "copy-badges": "copyfiles ./badges/* ./dist/",
     "copy-readme": "copyfiles README.md ./dist/",
     "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist && pnpm postbuild",
-    "postbuild": "pnpm copy-package && pnpm copy-badges && pnpm copy-readme",
+    "postbuild": "pnpm copy-package && pnpm copy-readme",
     "dev": "ts-node -r tsconfig-paths/register ./src/tests-related/generate.ts",
     "test": "jest",
     "test:dev": "jest --watchAll --coverage",

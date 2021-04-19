@@ -20,6 +20,10 @@ This package generates the following badges for you, based on the coverage repor
 - ![Lines](./badges/coverage-lines.svg)
 - ![Statements](./badges/coverage-statements.svg)
 
+## :zap: Github action
+
+If you want to integrate this to your CI/CD, you have a [github action available for this](https://github.com/marketplace/actions/jest-badges-generation-action).
+
 ## :zap: Requirements
 
 ### :diamonds: Jest
