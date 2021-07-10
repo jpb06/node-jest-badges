@@ -1,5 +1,6 @@
 # node-jest-badges
 
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jpb06/node-jest-badges)
 ![Code quality](https://img.shields.io/codefactor/grade/github/jpb06/node-jest-badges?logo=codefactor)
 ![Total coverage](./badges/coverage-global%20coverage.svg)
 ![Github workflow](https://img.shields.io/github/workflow/status/jpb06/node-jest-badges/checks?label=last%20workflow&logo=github-actions)
@@ -73,7 +74,7 @@ You can add a script to your package.json like so:
 Another way is to directly use the package:
 
 ```javascript
-import { generateBadges } from "node-jest-badges";
+import { generateBadges } from 'node-jest-badges';
 
 (async () => {
   await generateBadges();

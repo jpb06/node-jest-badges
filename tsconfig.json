@@ -15,7 +15,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "baseUrl": "src",
