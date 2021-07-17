@@ -1,4 +1,4 @@
-import { CoverageSummary } from "./coverageSummary.type";
+import { CoverageSummary } from './coverageSummary.type';
 
 export type Summary = {
   total: CoverageSummary;

@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
 export const download = async (url: string) => {
   try {
@@ -8,6 +8,6 @@ export const download = async (url: string) => {
     return data;
   } catch (err) {
     console.info(`Unable to retrieve data from ${url}`);
-    return "";
+    return '';
   }
 };

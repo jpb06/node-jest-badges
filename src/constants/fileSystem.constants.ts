@@ -1,8 +1,8 @@
-import { join } from "path";
+import { join } from 'path';
 
-export const outputDir = join(process.cwd(), "badges");
+export const outputDir = join(process.cwd(), 'badges');
 export const summaryPath = join(
   process.cwd(),
-  "coverage",
-  "coverage-summary.json"
+  'coverage',
+  'coverage-summary.json'
 );
