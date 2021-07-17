@@ -1,7 +1,7 @@
-import { summaryKeys } from "@constants/summaryKeys.constant";
-import { CoverageSummary } from "@owntypes/coverageSummary.type";
-import { Summary } from "@owntypes/summary.type";
-import { TotalKey } from "@owntypes/totalKey.type";
+import { summaryKeys } from '@constants/summaryKeys.constant';
+import { CoverageSummary } from '@owntypes/coverageSummary.type';
+import { Summary } from '@owntypes/summary.type';
+import { TotalKey } from '@owntypes/totalKey.type';
 
 const getTotalPercentage = (summary: Summary) => {
   const result =
@@ -16,7 +16,7 @@ export const getPercentage = (
   summary: Summary,
   key: keyof CoverageSummary | TotalKey
 ) => {
-  if (key === "global coverage") {
+  if (key === 'global coverage') {
     return getTotalPercentage(summary);
   }
 

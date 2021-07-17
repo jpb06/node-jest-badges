@@ -1,6 +1,6 @@
 export const summaryKeys = [
-  "lines",
-  "statements",
-  "functions",
-  "branches",
+  'lines',
+  'statements',
+  'functions',
+  'branches',
 ] as const;

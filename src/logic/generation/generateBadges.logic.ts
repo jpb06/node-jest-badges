@@ -1,7 +1,6 @@
 import { emptyDir, ensureDir, readJson } from 'fs-extra';
 
 import { outputDir, summaryPath } from '@constants/fileSystem.constants';
-import { summaryKeys } from '@constants/summaryKeys.constant';
 import { Summary } from '@owntypes/summary.type';
 
 import { generateCoverageFile } from './generateCoverageFile.logic';
@@ -11,8 +10,13 @@ export const generateBadges = async () => {
 
   await ensureDir(outputDir);
   await emptyDir(outputDir);
-  await Promise.all([
-    [...summaryKeys].map((key) => generateCoverageFile(summary, key)),
-    generateCoverageFile(summary, 'global coverage'),
-  ]);
+  try {
+    await generateCoverageFile(summary, 'global coverage');
+    await generateCoverageFile(summary, 'lines');
+    await generateCoverageFile(summary, 'statements');
+    await generateCoverageFile(summary, 'functions');
+    await generateCoverageFile(summary, 'branches');
+  } catch (err) {
+    console.error(`generateBadges: badges generation failure:`, err);
+  }
 };
