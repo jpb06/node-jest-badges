@@ -1,11 +1,18 @@
 # node-jest-badges
 
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jpb06/node-jest-badges)
+![npm bundle size](https://img.shields.io/bundlephobia/min/node-jest-badges)
 ![Code quality](https://img.shields.io/codefactor/grade/github/jpb06/node-jest-badges?logo=codefactor)
-![Total coverage](./badges/coverage-global%20coverage.svg)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=security_rating)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
+![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/node-jest-badges?label=snyk%20vulnerabilities)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=code_smells)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=coverage)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
+![Coverage](./badges/coverage-global%20coverage.svg)
 ![Github workflow](https://img.shields.io/github/workflow/status/jpb06/node-jest-badges/checks?label=last%20workflow&logo=github-actions)
 ![Last commit](https://img.shields.io/github/last-commit/jpb06/node-jest-badges?logo=git)
-![Commits activity](https://img.shields.io/github/commit-activity/m/jpb06/node-jest-badges?logo=github)
 
 ## :zap: Badges for everyone!
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { summaryMock } from '@tests/data/summary.mock-data';
 
 import { getPercentage } from './coveragePercentage.logic';
@@ -37,7 +38,7 @@ describe('getCoveragePercentage function', () => {
     expect(result).toBeUndefined();
     expect(console.info).toHaveBeenCalledTimes(1);
     expect(console.info).toHaveBeenCalledWith(
-      `No value for key 'functions' found in coverage report`
+      `No value for key 'functions' found in coverage report`,
     );
   });
 

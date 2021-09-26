@@ -1,9 +1,10 @@
-import fetch, { Response } from 'node-fetch';
+/* eslint-disable no-console */
+import axios from 'axios';
 import { mocked } from 'ts-jest/utils';
 
 import { download } from './download.logic';
 
-jest.mock('node-fetch');
+jest.mock('axios');
 
 describe('Download function', () => {
   const url = 'https://yolo.org';
@@ -12,7 +13,7 @@ describe('Download function', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('should return an empty string if an error occured', async () => {
-    mocked(fetch).mockRejectedValueOnce('');
+    mocked(axios.get).mockRejectedValueOnce('Oh no!');
 
     const result = await download('');
 
@@ -22,9 +23,7 @@ describe('Download function', () => {
 
   it('should return the fetched data', async () => {
     const data = 'Yolo man';
-    mocked(fetch).mockImplementationOnce(() =>
-      Promise.resolve({ text: () => data } as unknown as Response)
-    );
+    mocked(axios.get).mockResolvedValueOnce({ data });
 
     const result = await download(url);
 

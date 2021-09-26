@@ -1,7 +1,11 @@
-name: checks
-on: [push]
+name: Coverage badges generation & publish
+on:
+  push:
+    branches:
+      - master
 jobs:
   install:
+    name: Install dependencies
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -36,7 +40,18 @@ jobs:
       - name: Tests
         run: yarn test:ci
 
+      - name: Generating coverage badges
+        uses: ./
+
       - name: Bump package version
-        uses: jpb06/bump-package@v2.1.4
-        with:
-          create-tag: true
+        uses: jpb06/bump-package@v2.4.0
+
+      - name: Building package
+        run: yarn build
+
+      - name: Publish package
+        run: |
+          cd dist
+          yarn publish --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
