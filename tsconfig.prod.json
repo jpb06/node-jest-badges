@@ -6,5 +6,5 @@
     "removeComments": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "src/**/*.test.ts", "src/tests-related"]
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/tests-related/**"]
 }

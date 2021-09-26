@@ -3,24 +3,29 @@ const {
   compilerOptions: { paths: tsconfigPaths },
 } = require("./tsconfig");
 
-/** @type {import('@jest/types').Config.InitialOptions} */
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
+  roots: ['<rootDir>/src/'],
+  preset: "ts-jest",
   watchPlugins: [
     "jest-watch-typeahead/filename",
     "jest-watch-typeahead/testname",
   ],
-  moduleNameMapper: {
-    ...pathsToModuleNameMapper(tsconfigPaths, { prefix: "<rootDir>/src" }),
-  },
-  coveragePathIgnorePatterns: [
-    ".d.ts", ".js",
-    "<rootDir>/src/tests-related/",
-    "<rootDir>/src/types/",
-    "<rootDir>/src/pages/",
+  coverageReporters: [
+    "json-summary",
+    "text",
+    "lcov"
   ],
-  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
-  coverageReporters: ["json-summary", "text", "lcov"],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}",
+    "!<rootDir>/node_modules/",
+    "!<rootDir>/dist/",
+    "!<rootDir>/src/index.ts",
+    "!<rootDir>/src/cli/generateBadges.cli.ts",
+    "!<rootDir>/src/tests-related/**"
+  ],
+  modulePathIgnorePatterns: ['<rootDir>/dist'],
+  moduleNameMapper: pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' }),
 };

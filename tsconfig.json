@@ -20,12 +20,11 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@owntypes/*": ["types/*"],
+      "@type/*": ["types/*"],
       "@logic/*": ["logic/*"],
       "@constants/*": ["constants/*"],
       "@tests/*": ["tests-related/*"]
     }
   },
-  "include": ["**/*.ts"],
-  "exclude": ["./node_modules/*"]
+  "include": ["src"]
 }
