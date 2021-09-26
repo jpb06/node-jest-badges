@@ -7,10 +7,12 @@ import { getBadgeColor } from './badgeColor.logic';
 
 export const getBadgeUrl = (
   summary: Summary,
-  key: keyof CoverageSummary | TotalKey
-) => {
+  key: keyof CoverageSummary | TotalKey,
+): string | undefined => {
   const percentage = getPercentage(summary, key);
-  if (percentage === undefined) return;
+  if (percentage === undefined) {
+    return undefined;
+  }
 
   // https://shields.io/category/coverage
   const coverage = `${percentage}${encodeURI('%')}`;

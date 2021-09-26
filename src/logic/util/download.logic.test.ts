@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fetch, { Response } from 'node-fetch';
 import { mocked } from 'ts-jest/utils';
 
@@ -23,7 +24,7 @@ describe('Download function', () => {
   it('should return the fetched data', async () => {
     const data = 'Yolo man';
     mocked(fetch).mockImplementationOnce(() =>
-      Promise.resolve({ text: () => data } as unknown as Response)
+      Promise.resolve({ text: () => data } as unknown as Response),
     );
 
     const result = await download(url);

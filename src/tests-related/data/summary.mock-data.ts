@@ -5,7 +5,7 @@ export const summaryMock = (
   linesPct?: number,
   statementsPct?: number,
   branchesPct?: number,
-  functionsPct?: number
+  functionsPct?: number,
 ): Summary => ({
   total: {
     lines: { pct: linesPct } as FileCoverageTotal,

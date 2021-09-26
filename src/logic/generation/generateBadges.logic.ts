@@ -1,11 +1,10 @@
-import { emptyDir, ensureDir, readJson } from 'fs-extra';
-
 import { outputDir, summaryPath } from '@constants/fileSystem.constants';
 import { Summary } from '@owntypes/summary.type';
+import { emptyDir, ensureDir, readJson } from 'fs-extra';
 
 import { generateCoverageFile } from './generateCoverageFile.logic';
 
-export const generateBadges = async () => {
+export const generateBadges = async (): Promise<void> => {
   const summary = (await readJson(summaryPath)) as Summary;
 
   await ensureDir(outputDir);

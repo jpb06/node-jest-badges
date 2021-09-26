@@ -1,4 +1,3 @@
-import { writeFile } from 'fs-extra';
 import { join } from 'path';
 
 import { outputDir } from '@constants/fileSystem.constants';
@@ -7,11 +6,12 @@ import { download } from '@logic/util/download.logic';
 import { CoverageSummary } from '@owntypes/coverageSummary.type';
 import { Summary } from '@owntypes/summary.type';
 import { TotalKey } from '@owntypes/totalKey.type';
+import { writeFile } from 'fs-extra';
 
 export const generateCoverageFile = async (
   summary: Summary,
-  key: keyof CoverageSummary | TotalKey
-) => {
+  key: keyof CoverageSummary | TotalKey,
+): Promise<void> => {
   const badgeUrl = getBadgeUrl(summary, key);
   if (!badgeUrl) {
     console.error(`generateCoverageFile: missing badgeUrl for ${key}`);
