@@ -1,7 +1,7 @@
 {
   "name": "node-jest-badges",
-  "version": "1.2.0",
   "description": "Generating coverage badges from jest",
+  "version": "1.2.0",
   "main": "index.js",
   "repository": "https://github.com/jpb06/node-jest-badges.git",
   "author": "jpb06 <jpb.06@outlook.com>",
@@ -9,44 +9,43 @@
     "generateBadges": "./cli/generateBadges.cli.js"
   },
   "license": "MIT",
-  "scripts": {
-    "copy-package": "copyfiles package.json ./dist/",
-    "copy-badges": "copyfiles ./badges/* ./dist/",
-    "copy-readme": "copyfiles README.md ./dist/",
-    "build": "rimraf ./dist && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist && pnpm postbuild",
-    "postbuild": "pnpm copy-package && pnpm copy-readme",
-    "cli": "rimraf ./badges && node ./dist/cli/generateBadges.cli.js",
-    "dev": "rimraf ./badges && ts-node -r tsconfig-paths/register ./src/tests-related/generate.ts",
-    "test": "jest",
-    "test:dev": "jest --watchAll --coverage",
-    "test:ci": "jest --runInBand --ci --coverage"
-  },
   "dependencies": {
     "fs-extra": "^10.0.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "@types/babel__core": "^7.1.15",
     "@types/fs-extra": "^9.0.12",
-    "@types/glob": "^7.1.4",
-    "@types/graceful-fs": "^4.1.5",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^14.17.5",
-    "@types/node-fetch": "^2.5.11",
-    "@types/normalize-package-data": "^2.4.1",
-    "@types/prettier": "^2.3.2",
-    "@types/stack-utils": "^2.0.1",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.1",
+    "@types/node-fetch": "^3.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
     "copyfiles": "^2.4.1",
+    "del-cli": "^4.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.0.6",
-    "jest-circus": "^27.0.6",
     "jest-watch-typeahead": "^0.6.4",
-    "mime-types": "^2.1.31",
-    "prettier": "^2.3.2",
-    "rimraf": "^3.0.2",
+    "prettier": "^2.4.1",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.1.0",
     "tsconfig-paths": "^3.10.1",
     "tscpaths": "^0.0.9",
     "typescript": "^4.3.5"
+  },
+  "scripts": {
+    "copy-package": "copyfiles package.json ./dist/",
+    "copy-readme": "copyfiles README.md ./dist/",
+    "build": "del-cli ./dist && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist && yarn postbuild",
+    "postbuild": "yarn copy-package && yarn copy-readme",
+    "cli": "node ./dist/cli/generateBadges.cli.js",
+    "dev": "ts-node -r tsconfig-paths/register ./src/tests-related/generate.ts",
+    "lint": "eslint ./src",
+    "test": "jest --watch",
+    "test:dev": "jest --watchAll --coverage",
+    "test:ci": "jest --ci --coverage"
   }
 }
