@@ -39,7 +39,7 @@
   "scripts": {
     "copy-package": "copyfiles package.json ./dist/",
     "copy-readme": "copyfiles README.md ./dist/",
-    "build": "del-cli ./dist && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist && yarn postbuild",
+    "build": "del-cli ./dist && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "postbuild": "yarn copy-package && yarn copy-readme",
     "cli": "node ./dist/cli/generateBadges.cli.js",
     "dev": "ts-node -r tsconfig-paths/register ./src/tests-related/generate.ts",
