@@ -1,5 +1,5 @@
-import { FileCoverageTotal } from '@owntypes/fileCoverageTotal.type';
-import { Summary } from '@owntypes/summary.type';
+import { FileCoverageTotal } from '@type/fileCoverageTotal.type';
+import { Summary } from '@type/summary.type';
 
 export const summaryMock = (
   linesPct?: number,

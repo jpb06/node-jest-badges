@@ -3,9 +3,9 @@ import { join } from 'path';
 import { outputDir } from '@constants/fileSystem.constants';
 import { getBadgeUrl } from '@logic/badges/badgeUrl.logic';
 import { download } from '@logic/util/download.logic';
-import { CoverageSummary } from '@owntypes/coverageSummary.type';
-import { Summary } from '@owntypes/summary.type';
-import { TotalKey } from '@owntypes/totalKey.type';
+import { CoverageSummary } from '@type/coverageSummary.type';
+import { Summary } from '@type/summary.type';
+import { TotalKey } from '@type/totalKey.type';
 import { writeFile } from 'fs-extra';
 
 export const generateCoverageFile = async (

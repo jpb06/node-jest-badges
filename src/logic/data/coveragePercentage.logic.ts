@@ -1,7 +1,7 @@
 import { summaryKeys } from '@constants/summaryKeys.constant';
-import { CoverageSummary } from '@owntypes/coverageSummary.type';
-import { Summary } from '@owntypes/summary.type';
-import { TotalKey } from '@owntypes/totalKey.type';
+import { CoverageSummary } from '@type/coverageSummary.type';
+import { Summary } from '@type/summary.type';
+import { TotalKey } from '@type/totalKey.type';
 
 const getTotalPercentage = (summary: Summary): number => {
   const result =
