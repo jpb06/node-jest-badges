@@ -10,14 +10,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^10.0.0",
-    "node-fetch": "^3.0.0"
+    "axios": "^0.21.4",
+    "fs-extra": "^10.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.1",
-    "@types/node-fetch": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "copyfiles": "^2.4.1",
@@ -45,7 +44,7 @@
     "dev": "ts-node -r tsconfig-paths/register ./src/tests-related/generate.ts",
     "lint": "eslint ./src",
     "test": "jest --watch",
-    "test:dev": "jest --watchAll --coverage",
+    "test:dev": "jest --watchAll --coverage --no-cache",
     "test:ci": "jest --ci --coverage"
   }
 }
