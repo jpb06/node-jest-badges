@@ -17,7 +17,7 @@ describe('getCoveragePercentage function', () => {
 
   it('should return total percentage', () => {
     const summary = summaryMock(10, 20, 30, 40);
-    const result = getPercentage(summary, 'global coverage');
+    const result = getPercentage(summary, 'jest coverage');
 
     const total = (10 + 20 + 30 + 40) / 4;
     expect(result).toBe(total);
@@ -25,7 +25,7 @@ describe('getCoveragePercentage function', () => {
 
   it('should return total percentage even if a key is missing', () => {
     const summary = summaryMock(10, 20, 30);
-    const result = getPercentage(summary, 'global coverage');
+    const result = getPercentage(summary, 'jest coverage');
 
     const total = (10 + 20 + 30) / 4;
     expect(result).toBe(total);
@@ -44,7 +44,7 @@ describe('getCoveragePercentage function', () => {
 
   it('should accurately report total percentage if a key has a percentage at 0', () => {
     const summary = summaryMock(10, 20, 30, 0);
-    const result = getPercentage(summary, 'global coverage');
+    const result = getPercentage(summary, 'jest coverage');
 
     const total = (10 + 20 + 30) / 4;
     expect(result).toBe(total);

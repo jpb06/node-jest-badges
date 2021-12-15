@@ -1,1 +1,1 @@
-export type TotalKey = 'global coverage';
+export type TotalKey = 'jest coverage';
