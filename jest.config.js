@@ -22,7 +22,7 @@ module.exports = {
   ],
   collectCoverage: true,
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}",
+    "src/**/*.ts",
     "!<rootDir>/node_modules/",
     "!<rootDir>/dist/",
     "!<rootDir>/src/index.ts",
