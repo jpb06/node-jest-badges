@@ -93,6 +93,6 @@ import { generateBadges } from 'node-jest-badges';
 })();
 ```
 
-## Thanks
+## :zap: Thanks
 
 Big thanks to [Shield](https://github.com/badges/shields) for this awesome tool!
