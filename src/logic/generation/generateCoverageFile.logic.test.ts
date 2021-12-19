@@ -2,7 +2,7 @@ import { getBadgeUrl } from '@logic/badges/badgeUrl.logic';
 import { download } from '@logic/util/download.logic';
 import { summaryMock } from '@tests/data/summary.mock-data';
 import { writeFile } from 'fs-extra';
-import { mocked } from 'ts-jest/utils';
+import { mocked } from 'jest-mock';
 
 import { generateCoverageFile } from './generateCoverageFile.logic';
 

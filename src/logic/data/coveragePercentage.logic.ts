@@ -16,7 +16,7 @@ export const getPercentage = (
   summary: Summary,
   key: keyof CoverageSummary | TotalKey,
 ): number | undefined => {
-  if (key === 'global coverage') {
+  if (key === 'jest coverage') {
     return getTotalPercentage(summary);
   }
 

@@ -11,7 +11,7 @@ export const generateBadges = async (): Promise<void> => {
   try {
     const summary = (await readJson(summaryPath)) as Summary;
 
-    await generateCoverageFile(summary, 'global coverage');
+    await generateCoverageFile(summary, 'jest coverage');
     await generateCoverageFile(summary, 'lines');
     await generateCoverageFile(summary, 'statements');
     await generateCoverageFile(summary, 'functions');
