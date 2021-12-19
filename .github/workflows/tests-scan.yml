@@ -44,8 +44,8 @@ jobs:
       - name: Tests
         run: yarn test:ci
 
-      - name: Build dry run
-        run: yarn build:dry-run
+      - name: Types checks
+        run: yarn type-check
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
