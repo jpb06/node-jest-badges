@@ -2,3 +2,7 @@
 
 /coverage
 /dist
+
+yarn-error.log
+.yarnrc
+.yarn/releases/*
