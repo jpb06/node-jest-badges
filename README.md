@@ -82,6 +82,16 @@ You can add a script to your package.json like so:
   },
 ```
 
+The `generateBadges` function optionally accepts one argument to specify a custom path for the json summary file:
+
+```shell
+// will generate badges from './coverage/coverage-summary.json'
+yarn generateBadges 
+
+// will generate badges from './myModule/coverage-summary.json'
+yarn generateBadges ./myModule/coverage-summary.json 
+```
+
 ### 🔶 Node
 
 Another way is to directly use the package:
@@ -89,8 +99,20 @@ Another way is to directly use the package:
 ```javascript
 import { generateBadges } from 'node-jest-badges';
 
-(async () => {
+(async () => { 
+  // will generate badges from './coverage/coverage-summary.json'
   await generateBadges();
+})();
+```
+
+The function optionally accepts one argument to specify a custom path for the json summary file:
+
+```javascript
+import { generateBadges } from 'node-jest-badges';
+
+(async () => { 
+  // will generate badges from './myModule/coverage-summary.json'
+  await generateBadges('./myModule/coverage-summary.json');
 })();
 ```
 
