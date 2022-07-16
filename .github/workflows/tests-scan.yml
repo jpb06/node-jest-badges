@@ -36,7 +36,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
+          node-version-file: '.node-version'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setting yarn version
@@ -49,7 +49,7 @@ jobs:
         run: yarn lint
 
       - name: Tests
-        run: yarn test:ci
+        run: yarn test-ci
 
       - name: Types checks
         run: yarn type-check
