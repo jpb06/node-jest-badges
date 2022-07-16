@@ -18,6 +18,14 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/node-jest-badges)
 ![Last commit](https://img.shields.io/github/last-commit/jpb06/node-jest-badges?logo=git)
 
+Generating coverage badges from jest coverage report.
+
+<!-- readme-package-icons start -->
+
+<p align="left"><a href="https://docs.github.com/en/actions" target="_blank"><img height="70" src="https://raw.githubusercontent.com/jpb06/readme-package-icons/main/icons/github-actions.svg" /></a>&nbsp;<a href="https://www.typescriptlang.org/docs/" target="_blank"><img height="70" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" /></a>&nbsp;<a href="https://nodejs.org/en/docs/" target="_blank"><img height="70" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" /></a>&nbsp;<a href="https://yarnpkg.com/api/" target="_blank"><img height="70" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg" /></a>&nbsp;<a href="https://axios-http.com/fr/docs/intro" target="_blank"><img height="70" src="https://raw.githubusercontent.com/jpb06/readme-package-icons/main/icons/axios.png" /></a>&nbsp;<a href="https://eslint.org/docs/latest/" target="_blank"><img height="70" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" /></a>&nbsp;<a href="https://jestjs.io/docs/getting-started" target="_blank"><img height="70" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" /></a>&nbsp;<a href="https://prettier.io/docs/en/index.html" target="_blank"><img height="70" src="https://raw.githubusercontent.com/jpb06/readme-package-icons/main/icons/prettier.png" /></a>&nbsp;<a href="https://swc.rs/docs/getting-started" target="_blank"><img height="70" src="https://raw.githubusercontent.com/jpb06/readme-package-icons/main/icons/swc.svg" /></a></p>
+
+<!-- readme-package-icons end -->
+
 ## ⚡ Badges for everyone
 
 Let's just imagine you want to display some information about your testing coverage and you're using jest as a testing framework. Look no further!
@@ -86,10 +94,10 @@ The `generateBadges` function optionally accepts one argument to specify a custo
 
 ```shell
 // will generate badges from './coverage/coverage-summary.json'
-yarn generateBadges 
+yarn generateBadges
 
 // will generate badges from './myModule/coverage-summary.json'
-yarn generateBadges ./myModule/coverage-summary.json 
+yarn generateBadges ./myModule/coverage-summary.json
 ```
 
 ### 🔶 Node
@@ -99,7 +107,7 @@ Another way is to directly use the package:
 ```javascript
 import { generateBadges } from 'node-jest-badges';
 
-(async () => { 
+(async () => {
   // will generate badges from './coverage/coverage-summary.json'
   await generateBadges();
 })();
@@ -110,7 +118,7 @@ The function optionally accepts one argument to specify a custom path for the js
 ```javascript
 import { generateBadges } from 'node-jest-badges';
 
-(async () => { 
+(async () => {
   // will generate badges from './myModule/coverage-summary.json'
   await generateBadges('./myModule/coverage-summary.json');
 })();
