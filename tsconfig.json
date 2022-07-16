@@ -3,7 +3,7 @@
     "target": "es5",
     "module": "CommonJS",
     "lib": ["esnext"],
-    "baseUrl": "src",
+    "baseUrl": ".",
     "outDir": "./dist",
     "moduleResolution": "node",
     "strict": true,
@@ -20,10 +20,10 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@type/*": ["types/*"],
-      "@logic/*": ["logic/*"],
-      "@constants/*": ["constants/*"],
-      "@tests/*": ["tests-related/*"]
+      "@type/*": ["src/types/*"],
+      "@logic/*": ["src/logic/*"],
+      "@constants/*": ["src/constants/*"],
+      "@tests/*": ["src/tests-related/*"]
     }
   },
   "include": ["src"]

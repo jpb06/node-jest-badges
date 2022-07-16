@@ -1,35 +1,42 @@
-const { pathsToModuleNameMapper } = require("ts-jest");
 const {
-  compilerOptions: { paths: tsconfigPaths },
-} = require("./tsconfig");
+  compilerOptions: { paths, baseUrl },
+} = require('./tsconfig');
 
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('@jest/types').Config.InitialOptions} */
 
 module.exports = {
   logHeapUsage: true,
+  rootDir: '.',
   transform: {
-    '^.+\\.ts$': ['babel-jest', { presets: [['@babel/preset-env', { targets: { node: 'current' } }], '@babel/preset-typescript'] }],
+    '^.+\\.[tj]s$': [
+      '@swc/jest',
+      {
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+          },
+          baseUrl,
+          paths,
+          target: 'es2021',
+        },
+      },
+    ],
   },
-  moduleFileExtensions: ["js", "json", "ts"],
+  moduleFileExtensions: ['js', 'json', 'ts'],
   watchPlugins: [
-    "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname",
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
   ],
-  coverageReporters: [
-    "json-summary",
-    "text",
-    "lcov"
-  ],
+  coverageReporters: ['json-summary', 'text', 'lcov'],
   collectCoverage: true,
   collectCoverageFrom: [
-    "src/**/*.ts",
-    "!<rootDir>/node_modules/",
-    "!<rootDir>/dist/",
-    "!<rootDir>/src/index.ts",
-    "!<rootDir>/src/cli/generateBadges.cli.ts",
-    "!<rootDir>/src/tests-related/**",
-    "!<rootDir>/src/types/**"
+    'src/**/*.ts',
+    '!<rootDir>/node_modules/',
+    '!<rootDir>/dist/',
+    '!<rootDir>/src/index.ts',
+    '!<rootDir>/src/cli/generateBadges.cli.ts',
+    '!<rootDir>/src/tests-related/**',
+    '!<rootDir>/src/types/**',
   ],
-  modulePathIgnorePatterns: ['<rootDir>/dist'],
-  moduleNameMapper: pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>/src' }),
+  modulePathIgnorePatterns: ['<rootDir>/dist']
 };
