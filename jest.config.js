@@ -1,5 +1,7 @@
+const { transformTsPaths } = require('ts-paths-transform');
+
 const {
-  compilerOptions: { paths, baseUrl },
+  compilerOptions: { paths },
 } = require('./tsconfig');
 
 /** @type {import('@jest/types').Config.InitialOptions} */
@@ -15,13 +17,15 @@ module.exports = {
           parser: {
             syntax: 'typescript',
           },
-          baseUrl,
-          paths,
           target: 'es2021',
         },
       },
     ],
   },
+  moduleNameMapper: transformTsPaths(paths, {
+    prefix: '<rootDir>/',
+    debug: true,
+  }),
   moduleFileExtensions: ['js', 'json', 'ts'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
@@ -38,5 +42,5 @@ module.exports = {
     '!<rootDir>/src/tests-related/**',
     '!<rootDir>/src/types/**',
   ],
-  modulePathIgnorePatterns: ['<rootDir>/dist']
+  modulePathIgnorePatterns: ['<rootDir>/dist'],
 };
