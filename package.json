@@ -24,7 +24,7 @@
     "@typescript-eslint/parser": "^5.30.6",
     "copyfiles": "^2.4.1",
     "del-cli": "^4.0.1",
-    "eslint": "^8.19.0",
+    "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.6.0",
@@ -34,6 +34,7 @@
     "prettier": "^2.7.1",
     "readme-package-icons": "^1.0.6",
     "ts-node": "^10.9.1",
+    "ts-paths-transform": "^1.0.4",
     "tsconfig-paths": "^4.0.0",
     "tscpaths": "^0.0.9",
     "typescript": "^4.7.4"
