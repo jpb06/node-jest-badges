@@ -17,7 +17,6 @@ export const getBadgeUrl = (
   // https://shields.io/category/coverage
   const coverage = `${percentage}${encodeURI('%')}`;
   const colour = getBadgeColor(percentage);
-  const url = `https://img.shields.io/badge/${key}-${coverage}-${colour}?logo=jest`;
 
-  return url;
+  return `https://img.shields.io/badge/${key}-${coverage}-${colour}?logo=jest`;
 };
