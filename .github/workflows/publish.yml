@@ -16,7 +16,7 @@ jobs:
           access_token: ${{ github.token }}
 
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setting up pnpm
         uses: pnpm/action-setup@v2.2.4
@@ -37,7 +37,7 @@ jobs:
         run: pnpm test-ci
 
       - name: Generating coverage badges
-        uses: jpb06/jest-badges-action@v1.9.4
+        uses: jpb06/jest-badges-action@v1.9.5
 
       - name: Bump package version
         id: bumping-version

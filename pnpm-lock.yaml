@@ -22,9 +22,9 @@ specifiers:
   jest: ^29.3.1
   jest-watch-typeahead: ^2.0.0
   prettier: ^2.7.1
-  readme-package-icons: ^1.0.6
+  readme-package-icons: ^1.1.7
   ts-node: ^10.9.1
-  ts-paths-transform: ^2.0.1
+  ts-paths-transform: ^2.0.2
   tsconfig-paths: ^4.0.0
   tscpaths: ^0.0.9
   typescript: ^4.7.4
@@ -53,9 +53,9 @@ devDependencies:
   jest: 29.3.1_odkjkoia5xunhxkdrka32ib6vi
   jest-watch-typeahead: 2.2.0_jest@29.3.1
   prettier: 2.7.1
-  readme-package-icons: 1.1.6
+  readme-package-icons: 1.1.7
   ts-node: 10.9.1_4csf6ozabiuty34uv5nlik2ali
-  ts-paths-transform: 2.0.1
+  ts-paths-transform: 2.0.2
   tsconfig-paths: 4.1.0
   tscpaths: 0.0.9
   typescript: 4.8.4
@@ -4166,8 +4166,8 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /readme-package-icons/1.1.6:
-    resolution: {integrity: sha512-5AnQSgkfxRbTPWf4ptFaOZFTTIyTSFWp7v+0weE0g7bJPb+rHVb9exj4XdtytEq6ycGVZF6gRBGM6tP3ps8pIg==}
+  /readme-package-icons/1.1.7:
+    resolution: {integrity: sha512-u9PFEePGt9/5/ILtsmV5E9LJh+vpGNgT/cqX6Fu9Ww55h1nAaH70nsBWYme7p2hbZyxHbf2L+AVrdhG1+cqbAw==}
     hasBin: true
     dependencies:
       chalk: 4.1.2
@@ -4691,8 +4691,8 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-paths-transform/2.0.1:
-    resolution: {integrity: sha512-wkO3M1AjSA4j9X/QNfXC0sSGRDCSodTKybOrX20szgMHc1dag5i01c3jmsCWvz3+ER2vLJLVLW59kzKkaFqyVg==}
+  /ts-paths-transform/2.0.2:
+    resolution: {integrity: sha512-f+iiSAQPcMnSEJQKxvSCv4xuBI5LH6Sw1jX0p9nyLDUa4qZlkWRDlkSFE/zHXmkR55ijSONGj4yltzvLJw/GIA==}
     dependencies:
       chalk: 4.1.2
       prettyjson: 1.2.5

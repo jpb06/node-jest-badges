@@ -33,9 +33,9 @@
     "jest": "^29.3.1",
     "jest-watch-typeahead": "^2.0.0",
     "prettier": "^2.7.1",
-    "readme-package-icons": "^1.0.6",
+    "readme-package-icons": "^1.1.7",
     "ts-node": "^10.9.1",
-    "ts-paths-transform": "^2.0.1",
+    "ts-paths-transform": "^2.0.2",
     "tsconfig-paths": "^4.0.0",
     "tscpaths": "^0.0.9",
     "typescript": "^4.7.4"
