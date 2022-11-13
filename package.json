@@ -5,6 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/jpb06/node-jest-badges.git",
   "author": "jpb06 <jpb.06@outlook.com>",
+  "packageManager": "pnpm@7.15.0",
   "bin": {
     "generateBadges": "./cli/generateBadges.cli.js"
   },
