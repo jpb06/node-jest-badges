@@ -1,6 +1,5 @@
 import { join } from 'path';
 
-import { outputDir } from '@constants/fileSystem.constants';
 import { getBadgeUrl } from '@logic/badges/badgeUrl.logic';
 import { download } from '@logic/util/download.logic';
 import { CoverageSummary } from '@type/coverageSummary.type';
@@ -11,6 +10,7 @@ import { writeFile } from 'fs-extra';
 export const generateCoverageFile = async (
   summary: Summary,
   key: keyof CoverageSummary | TotalKey,
+  outputPath: string,
 ): Promise<void> => {
   const badgeUrl = getBadgeUrl(summary, key);
   if (!badgeUrl) {
@@ -18,7 +18,7 @@ export const generateCoverageFile = async (
     return;
   }
 
-  const path = join(outputDir, `coverage-${key}.svg`);
+  const path = join(outputPath, `coverage-${key}.svg`);
   const file = await download(badgeUrl);
 
   if (file.length > 0) {

@@ -12,7 +12,8 @@
   "dependencies": {
     "axios": "<1",
     "chalk": "<5",
-    "fs-extra": "^11.1.0"
+    "fs-extra": "^11.1.0",
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
     "@jest/types": "^29.3.1",
@@ -21,6 +22,7 @@
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^29.2.4",
     "@types/node": "^18.11.18",
+    "@types/yargs": "^17.0.17",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "copyfiles": "^2.4.1",
@@ -46,7 +48,7 @@
     "type-check": "tsc --project tsconfig.prod.json --noEmit",
     "build": "del-cli ./dist && tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
     "postbuild": "pnpm copy-package && pnpm copy-readme",
-    "cli": "node ./dist/cli/generateBadges.cli.js",
+    "cli": "node ./dist/cli/generateBadges.cli.js -o ./badges -c ./coverage/coverage-summary.json",
     "dev": "ts-node -r tsconfig-paths/register ./src/tests-related/generate.ts",
     "lint": "eslint ./src",
     "test": "jest",

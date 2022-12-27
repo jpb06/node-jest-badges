@@ -1,24 +1,23 @@
-import { outputDir, defaultSummaryPath } from '@constants/fileSystem.constants';
 import { Summary } from '@type/summary.type';
 import { emptyDir, ensureDir, readJson } from 'fs-extra';
 
 import { generateCoverageFile } from './generateCoverageFile.logic';
 
 export const generateBadges = async (
-  summaryPath?: string,
+  coverageSummaryPath: string,
+  outputPath: string,
 ): Promise<boolean> => {
-  await ensureDir(outputDir);
-  await emptyDir(outputDir);
+  await ensureDir(outputPath);
+  await emptyDir(outputPath);
 
   try {
-    const path = summaryPath ?? defaultSummaryPath;
-    const summary = (await readJson(path)) as Summary;
+    const summary = (await readJson(coverageSummaryPath)) as Summary;
 
-    await generateCoverageFile(summary, 'jest coverage');
-    await generateCoverageFile(summary, 'lines');
-    await generateCoverageFile(summary, 'statements');
-    await generateCoverageFile(summary, 'functions');
-    await generateCoverageFile(summary, 'branches');
+    await generateCoverageFile(summary, 'jest coverage', outputPath);
+    await generateCoverageFile(summary, 'lines', outputPath);
+    await generateCoverageFile(summary, 'statements', outputPath);
+    await generateCoverageFile(summary, 'functions', outputPath);
+    await generateCoverageFile(summary, 'branches', outputPath);
 
     return true;
   } catch (err) {
