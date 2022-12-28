@@ -26,7 +26,7 @@ describe('validateArguments function', () => {
 
     expect(console.error).toHaveBeenCalledWith(
       chalk.bold.redBright(
-        `Errors:\n-c\t\tCoverage file /Users/jpb06/repos/perso/node-jest-badges/coverage/coverage-summary.json doesn't exist\n`,
+        `Errors:\n-c\t\tCoverage file ./coverage/coverage-summary.json doesn't exist\n`,
       ),
     );
   });
@@ -37,8 +37,7 @@ describe('validateArguments function', () => {
     const args = runCommand(validateArgumentsPath);
 
     expect(args).toStrictEqual({
-      coverageSummaryPath:
-        '/Users/jpb06/repos/perso/node-jest-badges/coverage/coverage-summary.json',
+      coverageSummaryPath: './coverage/coverage-summary.json',
       outputPath: './badges',
     });
   });
@@ -62,8 +61,7 @@ describe('validateArguments function', () => {
     const args = runCommand(validateArgumentsPath, '-o', path);
 
     expect(args).toStrictEqual({
-      coverageSummaryPath:
-        '/Users/jpb06/repos/perso/node-jest-badges/coverage/coverage-summary.json',
+      coverageSummaryPath: './coverage/coverage-summary.json',
       outputPath: path,
     });
   });
