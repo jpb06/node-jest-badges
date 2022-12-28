@@ -16,20 +16,14 @@ describe('generateBadges function', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('should ensure outDir is there and clear it', async () => {
-    await generateBadges({
-      coverageSummaryPath: defaultSummaryPath,
-      outputPath: defaultOutputDir,
-    });
+    await generateBadges(defaultSummaryPath, defaultOutputDir);
 
     expect(ensureDir).toHaveBeenCalledTimes(1);
     expect(emptyDir).toHaveBeenCalledTimes(1);
   });
 
   it('should generate all badges', async () => {
-    await generateBadges({
-      coverageSummaryPath: defaultSummaryPath,
-      outputPath: defaultOutputDir,
-    });
+    await generateBadges(defaultSummaryPath, defaultOutputDir);
 
     expect(readJson).toHaveBeenCalledTimes(1);
     expect(generateCoverageFile).toHaveBeenCalledTimes(5);
@@ -40,32 +34,31 @@ describe('generateBadges function', () => {
     jest.mocked(readJson).mockRejectedValueOnce(new Error('Oh no!') as never);
 
     await expect(
-      generateBadges({
-        coverageSummaryPath: defaultSummaryPath,
-        outputPath: defaultOutputDir,
-      }),
+      generateBadges(defaultSummaryPath, defaultOutputDir),
     ).rejects.toThrow('Oh no!');
 
     expect(readJson).toHaveBeenCalledTimes(1);
     expect(generateCoverageFile).toHaveBeenCalledTimes(0);
   });
 
-  it('should use the default summary path', async () => {
-    await generateBadges({
-      coverageSummaryPath: defaultSummaryPath,
-      outputPath: defaultOutputDir,
-    });
+  it('should use default values', async () => {
+    await generateBadges();
 
     expect(readJson).toHaveBeenCalledWith(defaultSummaryPath);
+    expect(generateCoverageFile).toHaveBeenCalledTimes(5);
+  });
+
+  it('should use custom summary path and output dir', async () => {
+    await generateBadges(defaultSummaryPath, defaultOutputDir);
+
+    expect(readJson).toHaveBeenCalledWith(defaultSummaryPath);
+    expect(generateCoverageFile).toHaveBeenCalledTimes(5);
   });
 
   it('should use the summary path given as parameter', async () => {
     const summaryPath = 'yolo';
 
-    await generateBadges({
-      coverageSummaryPath: summaryPath,
-      outputPath: defaultOutputDir,
-    });
+    await generateBadges(summaryPath, defaultOutputDir);
 
     expect(readJson).toHaveBeenCalledWith(summaryPath);
   });

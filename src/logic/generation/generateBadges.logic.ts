@@ -7,10 +7,10 @@ import { emptyDir, ensureDir, readJson } from 'fs-extra';
 
 import { generateCoverageFile } from './generateCoverageFile.logic';
 
-export const generateBadges = async ({
+export const generateBadges = async (
   coverageSummaryPath = defaultSummaryPath,
   outputPath = defaultOutputDir,
-}): Promise<boolean> => {
+): Promise<boolean> => {
   await ensureDir(outputPath);
   await emptyDir(outputPath);
 
