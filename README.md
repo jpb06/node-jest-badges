@@ -123,10 +123,7 @@ import { generateBadges } from 'node-jest-badges';
 
 (async () => {
   // will generate badges from './myModule/coverage-summary.json' in './cool'
-  await generateBadges({
-    coverageSummaryPath: './myModule/coverage-summary.json',
-    outputPath: './cool',
-  });
+  await generateBadges('./myModule/coverage-summary.json', './cool');
 })();
 ```
 
