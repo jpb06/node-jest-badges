@@ -1,6 +1,6 @@
 import { join } from 'path';
 
-export const defaultOutputDir = join(process.cwd(), 'badges');
+export const defaultOutputDir = './badges';
 export const defaultSummaryPath = join(
   process.cwd(),
   'coverage',

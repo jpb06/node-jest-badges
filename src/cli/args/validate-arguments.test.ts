@@ -39,7 +39,7 @@ describe('validateArguments function', () => {
     expect(args).toStrictEqual({
       coverageSummaryPath:
         '/Users/jpb06/repos/perso/node-jest-badges/coverage/coverage-summary.json',
-      outputPath: '/Users/jpb06/repos/perso/node-jest-badges/badges',
+      outputPath: './badges',
     });
   });
 
@@ -51,7 +51,7 @@ describe('validateArguments function', () => {
 
     expect(args).toStrictEqual({
       coverageSummaryPath: path,
-      outputPath: '/Users/jpb06/repos/perso/node-jest-badges/badges',
+      outputPath: './badges',
     });
   });
 
