@@ -1,12 +1,16 @@
+import {
+  defaultOutputDir,
+  defaultSummaryPath,
+} from '@constants/fileSystem.constants';
 import { Summary } from '@type/summary.type';
 import { emptyDir, ensureDir, readJson } from 'fs-extra';
 
 import { generateCoverageFile } from './generateCoverageFile.logic';
 
-export const generateBadges = async (
-  coverageSummaryPath: string,
-  outputPath: string,
-): Promise<boolean> => {
+export const generateBadges = async ({
+  coverageSummaryPath = defaultSummaryPath,
+  outputPath = defaultOutputDir,
+}): Promise<boolean> => {
   await ensureDir(outputPath);
   await emptyDir(outputPath);
 

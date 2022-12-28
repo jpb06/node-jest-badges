@@ -10,7 +10,7 @@ import { validateArguments } from './args/validate-arguments';
   try {
     const { coverageSummaryPath, outputPath } = validateArguments();
 
-    await generateBadges(coverageSummaryPath, outputPath);
+    await generateBadges({ coverageSummaryPath, outputPath });
 
     displaySuccess(coverageSummaryPath);
     process.exit(0);

@@ -16,14 +16,20 @@ describe('generateBadges function', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('should ensure outDir is there and clear it', async () => {
-    await generateBadges(defaultSummaryPath, defaultOutputDir);
+    await generateBadges({
+      coverageSummaryPath: defaultSummaryPath,
+      outputPath: defaultOutputDir,
+    });
 
     expect(ensureDir).toHaveBeenCalledTimes(1);
     expect(emptyDir).toHaveBeenCalledTimes(1);
   });
 
   it('should generate all badges', async () => {
-    await generateBadges(defaultSummaryPath, defaultOutputDir);
+    await generateBadges({
+      coverageSummaryPath: defaultSummaryPath,
+      outputPath: defaultOutputDir,
+    });
 
     expect(readJson).toHaveBeenCalledTimes(1);
     expect(generateCoverageFile).toHaveBeenCalledTimes(5);
@@ -34,7 +40,10 @@ describe('generateBadges function', () => {
     jest.mocked(readJson).mockRejectedValueOnce(new Error('Oh no!') as never);
 
     await expect(
-      generateBadges(defaultSummaryPath, defaultOutputDir),
+      generateBadges({
+        coverageSummaryPath: defaultSummaryPath,
+        outputPath: defaultOutputDir,
+      }),
     ).rejects.toThrow('Oh no!');
 
     expect(readJson).toHaveBeenCalledTimes(1);
@@ -42,7 +51,10 @@ describe('generateBadges function', () => {
   });
 
   it('should use the default summary path', async () => {
-    await generateBadges(defaultSummaryPath, defaultOutputDir);
+    await generateBadges({
+      coverageSummaryPath: defaultSummaryPath,
+      outputPath: defaultOutputDir,
+    });
 
     expect(readJson).toHaveBeenCalledWith(defaultSummaryPath);
   });
@@ -50,7 +62,10 @@ describe('generateBadges function', () => {
   it('should use the summary path given as parameter', async () => {
     const summaryPath = 'yolo';
 
-    await generateBadges(summaryPath, defaultOutputDir);
+    await generateBadges({
+      coverageSummaryPath: summaryPath,
+      outputPath: defaultOutputDir,
+    });
 
     expect(readJson).toHaveBeenCalledWith(summaryPath);
   });
