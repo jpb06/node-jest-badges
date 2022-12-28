@@ -78,7 +78,7 @@ module.exports = {
 
 ## ⚡ Usage
 
-You have two ways to generate coverage badges: cli and node. Both will create a 'badges' folder at project root where .svg files will be written.
+You have two ways to generate coverage badges: cli and node. Both will create a folder where .svg files will be written.
 
 ### 🔶 Cli
 
@@ -90,14 +90,17 @@ You can add a script to your package.json like so:
   },
 ```
 
-The `generateBadges` function optionally accepts one argument to specify a custom path for the json summary file:
+The `generateBadges` function accepts two optional arguments to specify:
+
+- a custom path for the input json summary file.
+- a custom path for the output path.
 
 ```shell
-// will generate badges from './coverage/coverage-summary.json'
+// will generate badges from './coverage/coverage-summary.json' in './badges' (default)
 yarn generateBadges
 
-// will generate badges from './myModule/coverage-summary.json'
-yarn generateBadges ./myModule/coverage-summary.json
+// will generate badges from './myModule/coverage-summary.json' in './cool' folder.
+yarn generateBadges -c ./myModule/coverage-summary.json -o ./cool
 ```
 
 ### 🔶 Node
@@ -108,19 +111,19 @@ Another way is to directly use the package:
 import { generateBadges } from 'node-jest-badges';
 
 (async () => {
-  // will generate badges from './coverage/coverage-summary.json'
+  // will generate badges from './coverage/coverage-summary.json' in './badges' (default)
   await generateBadges();
 })();
 ```
 
-The function optionally accepts one argument to specify a custom path for the json summary file:
+The function optionally accepts two arguments to specify a custom path for the json summary file and the output path:
 
 ```javascript
 import { generateBadges } from 'node-jest-badges';
 
 (async () => {
-  // will generate badges from './myModule/coverage-summary.json'
-  await generateBadges('./myModule/coverage-summary.json');
+  // will generate badges from './myModule/coverage-summary.json' in './cool'
+  await generateBadges('./myModule/coverage-summary.json', './cool');
 })();
 ```
 
