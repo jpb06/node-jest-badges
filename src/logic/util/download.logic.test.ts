@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import { mocked } from 'jest-mock';
 
 import { download } from './download.logic';
 
@@ -13,7 +12,7 @@ describe('Download function', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('should return an empty string if an error occured', async () => {
-    mocked(axios.get).mockRejectedValueOnce('Oh no!');
+    jest.mocked(axios.get).mockRejectedValueOnce('Oh no!');
 
     const result = await download('');
 
@@ -23,7 +22,7 @@ describe('Download function', () => {
 
   it('should return the fetched data', async () => {
     const data = 'Yolo man';
-    mocked(axios.get).mockResolvedValueOnce({ data });
+    jest.mocked(axios.get).mockResolvedValueOnce({ data });
 
     const result = await download(url);
 

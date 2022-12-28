@@ -1,24 +1,18 @@
 #!/usr/bin/env node
-import { defaultSummaryPath } from '@constants/fileSystem.constants';
 import { displayError, displaySuccess } from '@logic/console/console.messages';
 import { generateBadges } from '@logic/generation/generateBadges.logic';
 
-import { getProcessArguments } from './args/process-argv.indirection';
+import { validateArguments } from './args/validate-arguments';
 
 /* istanbul ignore file */
 
 (async (): Promise<void> => {
   try {
-    const args = getProcessArguments();
+    const { coverageSummaryPath, outputPath } = validateArguments();
 
-    let summaryPath = undefined;
-    if (args.length === 1) {
-      summaryPath = args[0];
-    }
+    await generateBadges(coverageSummaryPath, outputPath);
 
-    await generateBadges(summaryPath);
-
-    displaySuccess(summaryPath ?? defaultSummaryPath);
+    displaySuccess(coverageSummaryPath);
     process.exit(0);
   } catch (err) {
     displayError(err);
