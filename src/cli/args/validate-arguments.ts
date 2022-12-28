@@ -22,7 +22,7 @@ export const validateArguments = (): GenerateBadgesArguments => {
     .default('c', defaultSummaryPath)
     .default('o', defaultOutputDir)
     .check((args) => {
-      const coverageFileExists = pathExistsSync(args.c as string);
+      const coverageFileExists = pathExistsSync(args.c);
       if (!coverageFileExists) {
         throw new Error(
           chalk.bold.redBright(
