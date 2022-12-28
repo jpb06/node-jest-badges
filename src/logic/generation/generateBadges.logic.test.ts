@@ -41,10 +41,18 @@ describe('generateBadges function', () => {
     expect(generateCoverageFile).toHaveBeenCalledTimes(0);
   });
 
-  it('should use the default summary path', async () => {
+  it('should use default values', async () => {
+    await generateBadges();
+
+    expect(readJson).toHaveBeenCalledWith(defaultSummaryPath);
+    expect(generateCoverageFile).toHaveBeenCalledTimes(5);
+  });
+
+  it('should use custom summary path and output dir', async () => {
     await generateBadges(defaultSummaryPath, defaultOutputDir);
 
     expect(readJson).toHaveBeenCalledWith(defaultSummaryPath);
+    expect(generateCoverageFile).toHaveBeenCalledTimes(5);
   });
 
   it('should use the summary path given as parameter', async () => {
