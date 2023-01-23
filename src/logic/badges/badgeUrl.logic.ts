@@ -2,8 +2,8 @@ import { CoverageSummary } from '@type/coverageSummary.type';
 import { Summary } from '@type/summary.type';
 import { TotalKey } from '@type/totalKey.type';
 
-import { getPercentage } from '../data/coveragePercentage.logic';
 import { getBadgeColor } from './badgeColor.logic';
+import { getPercentage } from '../data/coveragePercentage.logic';
 
 export const getBadgeUrl = (
   summary: Summary,
