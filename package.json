@@ -1,7 +1,7 @@
 {
   "name": "node-jest-badges",
   "description": "Generating coverage badges from jest",
-  "version": "1.3.11",
+  "version": "1.3.12",
   "main": "index.js",
   "repository": "https://github.com/jpb06/node-jest-badges.git",
   "author": "jpb06 <jpb.06@outlook.com>",
