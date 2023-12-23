@@ -4,7 +4,7 @@ import { CoverageSummaryFileContent, CoverageKeys } from '@types';
 const getTotalPercentage = (summary: CoverageSummaryFileContent): number => {
   const result =
     summaryKeys
-      .map((k) => summary.total[k].pct || 0)
+      .map((k) => summary.total[k].pct ?? 0)
       .reduce((a, b) => a + b, 0) / summaryKeys.length;
 
   return Math.round((result + Number.EPSILON) * 100) / 100;
