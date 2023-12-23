@@ -1,9 +1,7 @@
-import { summaryKeys } from '@constants/summaryKeys.constant';
-import { CoverageSummary } from '@type/coverageSummary.type';
-import { Summary } from '@type/summary.type';
-import { TotalKey } from '@type/totalKey.type';
+import { summaryKeys } from '@constants';
+import { CoverageSummaryFileContent, CoverageKeys } from '@types';
 
-const getTotalPercentage = (summary: Summary): number => {
+const getTotalPercentage = (summary: CoverageSummaryFileContent): number => {
   const result =
     summaryKeys
       .map((k) => summary.total[k].pct || 0)
@@ -13,8 +11,8 @@ const getTotalPercentage = (summary: Summary): number => {
 };
 
 export const getPercentage = (
-  summary: Summary,
-  key: keyof CoverageSummary | TotalKey,
+  summary: CoverageSummaryFileContent,
+  key: CoverageKeys,
 ): number | undefined => {
   if (key === 'jest coverage') {
     return getTotalPercentage(summary);

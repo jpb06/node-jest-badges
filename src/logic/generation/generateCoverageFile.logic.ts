@@ -1,29 +1,28 @@
 import { join } from 'path';
 
+import { Effect } from 'effect';
+
+import { CoverageSummaryFileContent, CoverageKeys } from '@types';
+
 import { getBadgeUrl } from '@logic/badges/badgeUrl.logic';
-import { download } from '@logic/util/download.logic';
-import { CoverageSummary } from '@type/coverageSummary.type';
-import { Summary } from '@type/summary.type';
-import { TotalKey } from '@type/totalKey.type';
-import { writeFile } from 'fs-extra';
+import { download } from '@logic/effects/download.effect';
+import { writeFile } from '@logic/effects/fsExtra.effects';
 
-export const generateCoverageFile = async (
-  summary: Summary,
-  key: keyof CoverageSummary | TotalKey,
-  outputPath: string,
-): Promise<void> => {
-  const badgeUrl = getBadgeUrl(summary, key);
-  if (!badgeUrl) {
-    console.error(`generateCoverageFile: missing badgeUrl for ${key}`);
-    return;
-  }
+export const generateCoverageFile =
+  (summary: CoverageSummaryFileContent, outputPath: string) =>
+  (key: CoverageKeys) =>
+    Effect.gen(function* (_) {
+      const badgeUrl = getBadgeUrl(summary, key);
+      if (!badgeUrl) {
+        console.error(`generateCoverageFile: missing badgeUrl for ${key}`);
+        return;
+      }
 
-  const path = join(outputPath, `coverage-${key}.svg`);
-  const file = await download(badgeUrl);
-
-  if (file.length > 0) {
-    await writeFile(path, file, { encoding: 'utf8' });
-  } else {
-    console.error(`generateCoverageFile: no file to write for ${key}`);
-  }
-};
+      const path = join(outputPath, `coverage-${key}.svg`);
+      const file = yield* _(download(badgeUrl));
+      if (file.length > 0) {
+        yield* _(writeFile(path, file));
+      } else {
+        console.error(`generateCoverageFile: no file to write for ${key}`);
+      }
+    });

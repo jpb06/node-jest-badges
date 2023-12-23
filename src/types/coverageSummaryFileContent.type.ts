@@ -1,6 +1,6 @@
 import { CoverageSummary } from './coverageSummary.type';
 
-export type Summary = {
+export interface CoverageSummaryFileContent {
   [file: string]: CoverageSummary;
   total: CoverageSummary;
-};
+}

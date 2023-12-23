@@ -1,30 +1,28 @@
-import {
-  defaultOutputDir,
-  defaultSummaryPath,
-} from '@constants/fileSystem.constants';
-import { Summary } from '@type/summary.type';
-import { emptyDir, ensureDir, readJson } from 'fs-extra';
+import { Effect, pipe } from 'effect';
+
+import { defaultOutputDir, defaultSummaryPath } from '@constants';
+import { coverageKeysArray, CoverageSummaryFileContent } from '@types';
+
+import { emptyDir, ensureDir, readJson } from '@logic/effects/fsExtra.effects';
 
 import { generateCoverageFile } from './generateCoverageFile.logic';
 
 export const generateBadges = async (
   coverageSummaryPath = defaultSummaryPath,
   outputPath = defaultOutputDir,
-): Promise<boolean> => {
-  await ensureDir(outputPath);
-  await emptyDir(outputPath);
-
-  try {
-    const summary = (await readJson(coverageSummaryPath)) as Summary;
-
-    await generateCoverageFile(summary, 'jest coverage', outputPath);
-    await generateCoverageFile(summary, 'lines', outputPath);
-    await generateCoverageFile(summary, 'statements', outputPath);
-    await generateCoverageFile(summary, 'functions', outputPath);
-    await generateCoverageFile(summary, 'branches', outputPath);
-
-    return true;
-  } catch (err) {
-    throw new Error((err as { message: string }).message);
-  }
-};
+) =>
+  Effect.runPromise(
+    pipe(
+      Effect.all([ensureDir(outputPath), emptyDir(outputPath)]),
+      Effect.flatMap(() =>
+        readJson<CoverageSummaryFileContent>(coverageSummaryPath),
+      ),
+      Effect.flatMap((summary) =>
+        Effect.all(
+          coverageKeysArray.map(generateCoverageFile(summary, outputPath)),
+          { concurrency: 'unbounded' },
+        ),
+      ),
+      Effect.map(() => true),
+    ),
+  );

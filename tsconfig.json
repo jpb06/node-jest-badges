@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2020",
     "module": "CommonJS",
-    "lib": ["esnext"],
+    "lib": ["ES2020"],
     "baseUrl": ".",
     "outDir": "./dist",
     "moduleResolution": "node",
@@ -20,10 +20,10 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@type/*": ["src/types/*"],
+      "@constants": ["src/constants/index"],
       "@logic/*": ["src/logic/*"],
-      "@constants/*": ["src/constants/*"],
-      "@tests/*": ["src/tests-related/*"]
+      "@tests": ["src/tests-related/index"],
+      "@types": ["src/types/index"]
     }
   },
   "include": ["src"]
