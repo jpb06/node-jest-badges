@@ -1,12 +1,11 @@
-import { FileCoverageTotal } from '@type/fileCoverageTotal.type';
-import { Summary } from '@type/summary.type';
+import { FileCoverageTotal, CoverageSummaryFileContent } from '@types';
 
-export const summaryMock = (
+export const coverageSummaryFileContentMock = (
   linesPct?: number,
   statementsPct?: number,
   branchesPct?: number,
   functionsPct?: number,
-): Summary => ({
+): CoverageSummaryFileContent => ({
   total: {
     lines: { pct: linesPct } as FileCoverageTotal,
     statements: { pct: statementsPct } as FileCoverageTotal,

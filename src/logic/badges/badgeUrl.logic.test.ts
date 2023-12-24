@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { summaryMock } from '@tests/data/summary.mock-data';
+import { coverageSummaryFileContentMock } from '@tests';
 
 import { getBadgeUrl } from './badgeUrl.logic';
 
@@ -9,7 +9,7 @@ describe('badgeUrl function', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('should return undefined if percentage is missing', () => {
-    const summary = summaryMock();
+    const summary = coverageSummaryFileContentMock();
 
     const result = getBadgeUrl(summary, 'branches');
 
@@ -21,7 +21,7 @@ describe('badgeUrl function', () => {
   });
 
   it('should return the badge url', () => {
-    const summary = summaryMock(50);
+    const summary = coverageSummaryFileContentMock(50);
 
     const result = getBadgeUrl(summary, 'lines');
 

@@ -1,13 +1,12 @@
-import { CoverageSummary } from '@type/coverageSummary.type';
-import { Summary } from '@type/summary.type';
-import { TotalKey } from '@type/totalKey.type';
+import { CoverageKeys, CoverageSummaryFileContent } from '@types';
 
-import { getBadgeColor } from './badgeColor.logic';
 import { getPercentage } from '../data/coveragePercentage.logic';
 
+import { getBadgeColor } from './badgeColor.logic';
+
 export const getBadgeUrl = (
-  summary: Summary,
-  key: keyof CoverageSummary | TotalKey,
+  summary: CoverageSummaryFileContent,
+  key: CoverageKeys,
 ): string | undefined => {
   const percentage = getPercentage(summary, key);
   if (percentage === undefined) {

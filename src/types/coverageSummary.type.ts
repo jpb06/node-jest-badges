@@ -1,8 +1,7 @@
+import { CoverageKeys } from './coverageKeys.type';
 import { FileCoverageTotal } from './fileCoverageTotal.type';
 
-export interface CoverageSummary {
-  lines: FileCoverageTotal;
-  statements: FileCoverageTotal;
-  branches: FileCoverageTotal;
-  functions: FileCoverageTotal;
-}
+export type CoverageSummary = Record<
+  Exclude<CoverageKeys, 'jest coverage'>,
+  FileCoverageTotal
+>;

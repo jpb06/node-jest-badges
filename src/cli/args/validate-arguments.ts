@@ -1,15 +1,16 @@
-import {
-  defaultOutputDir,
-  defaultSummaryPath,
-} from '@constants/fileSystem.constants';
 import chalk from 'chalk';
 import { pathExistsSync } from 'fs-extra';
 import { hideBin } from 'yargs/helpers';
 import yargs from 'yargs/yargs';
 
+import { defaultOutputDir, defaultSummaryPath } from '@constants';
+
 import { GenerateBadgesArguments } from '../types/args.type';
 
-type CliArguments = { c: string; o: string };
+interface CliArguments {
+  c: string;
+  o: string;
+}
 
 export const validateArguments = (): GenerateBadgesArguments => {
   const argv = yargs(hideBin(process.argv))

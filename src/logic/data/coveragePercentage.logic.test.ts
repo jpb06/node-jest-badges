@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { summaryMock } from '@tests/data/summary.mock-data';
+import { coverageSummaryFileContentMock } from '@tests';
 
 import { getPercentage } from './coveragePercentage.logic';
 
@@ -9,14 +9,14 @@ describe('getCoveragePercentage function', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('should return the branches percentage', () => {
-    const summary = summaryMock(10, 20, 30, 40);
+    const summary = coverageSummaryFileContentMock(10, 20, 30, 40);
     const result = getPercentage(summary, 'branches');
 
     expect(result).toBe(30);
   });
 
   it('should return total percentage', () => {
-    const summary = summaryMock(10, 20, 30, 40);
+    const summary = coverageSummaryFileContentMock(10, 20, 30, 40);
     const result = getPercentage(summary, 'jest coverage');
 
     const total = (10 + 20 + 30 + 40) / 4;
@@ -24,7 +24,7 @@ describe('getCoveragePercentage function', () => {
   });
 
   it('should return total percentage even if a key is missing', () => {
-    const summary = summaryMock(10, 20, 30);
+    const summary = coverageSummaryFileContentMock(10, 20, 30);
     const result = getPercentage(summary, 'jest coverage');
 
     const total = (10 + 20 + 30) / 4;
@@ -32,7 +32,7 @@ describe('getCoveragePercentage function', () => {
   });
 
   it('should display a message if a key is missing', () => {
-    const summary = summaryMock(10, 20, 30);
+    const summary = coverageSummaryFileContentMock(10, 20, 30);
     const result = getPercentage(summary, 'functions');
 
     expect(result).toBeUndefined();
@@ -43,7 +43,7 @@ describe('getCoveragePercentage function', () => {
   });
 
   it('should accurately report total percentage if a key has a percentage at 0', () => {
-    const summary = summaryMock(10, 20, 30, 0);
+    const summary = coverageSummaryFileContentMock(10, 20, 30, 0);
     const result = getPercentage(summary, 'jest coverage');
 
     const total = (10 + 20 + 30) / 4;
