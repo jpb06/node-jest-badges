@@ -83,8 +83,8 @@ devDependencies:
     specifier: ^3.0.1
     version: 3.0.1(eslint@8.56.0)
   eslint-plugin-prettier:
-    specifier: ^5.1.1
-    version: 5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+    specifier: ^5.1.2
+    version: 5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
   jest:
     specifier: ^29.3.1
     version: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
@@ -95,8 +95,8 @@ devDependencies:
     specifier: ^3.1.1
     version: 3.1.1
   readme-package-icons:
-    specifier: ^1.1.7
-    version: 1.1.8
+    specifier: ^1.1.10
+    version: 1.1.10
   ts-node:
     specifier: ^10.9.1
     version: 10.9.2(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.3.3)
@@ -2567,8 +2567,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-prettier@5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
-    resolution: {integrity: sha512-WQpV3mSmIobb77s4qiCZu3dBrZZ0rj8ckSfBtRrgNK9Wnh2s3eiaxNTWloz1LJ1WtvqZES/PAI7PLvsrGt/CEA==}
+  /eslint-plugin-prettier@5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
+    resolution: {integrity: sha512-dhlpWc9vOwohcWmClFcA+HjlvUpuyynYs0Rf+L/P6/0iQE6vlHW9l5bkfzN62/Stm9fbq8ku46qzde76T1xlSg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
@@ -4844,8 +4844,9 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /readme-package-icons@1.1.8:
-    resolution: {integrity: sha512-1YKFlnS60/KjH3du7AmidOKAszdt3IwMHebPgKOkOPVwUvtDk2XzwVzrCz5IscqWRJcf/XVQf6hYPlpJ9tXvyA==}
+  /readme-package-icons@1.1.10:
+    resolution: {integrity: sha512-zE9DrDFrf2J9BGi68m5MoSTs2sTBeu6hzWLm3FUXQF7chLJzIaZ6lbkD2PT1vefFrlrlk2BDlPTtVAmedSKzZw==}
+    engines: {node: 20.x}
     hasBin: true
     dependencies:
       chalk: 4.1.2
