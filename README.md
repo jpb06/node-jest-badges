@@ -13,7 +13,6 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=code_smells)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=bugs)](https://sonarcloud.io/summary/new_code?id=jpb06_node-jest-badges)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=jpb06_node-jest-badges)
-![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/node-jest-badges?label=snyk%20vulnerabilities)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=jpb06_node-jest-badges&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=jpb06_node-jest-badges)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/node-jest-badges)
 ![Last commit](https://img.shields.io/github/last-commit/jpb06/node-jest-badges?logo=git)
