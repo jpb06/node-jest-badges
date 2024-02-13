@@ -25,6 +25,8 @@ Generating coverage badges from jest coverage report.
 
 <!-- readme-package-icons end -->
 
+# 😺 This library is replaced by [node-coverage-badges](https://github.com/jpb06/node-coverage-badges)
+
 ## ⚡ Badges for everyone
 
 Let's just imagine you want to display some information about your testing coverage and you're using jest as a testing framework. Look no further!
